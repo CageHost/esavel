@@ -18,6 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::get('auth/google', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/google/callback', 'Auth\RegisterController@handleProviderCallback');
+
+Route::get('auth/facebook', 'Auth\RegisterController@redirectFacebook');
+Route::get('auth/facebook/callback', 'Auth\RegisterController@handleFacebook');
+
+Route::get('/user', 'UserController@index');
+
+Route::prefix('lapi')->middleware(['auth'])->namespace('Lapi')->group(function () {
+    Route::get('/user', 'UserController@index');
+});

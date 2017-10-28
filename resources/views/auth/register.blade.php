@@ -69,8 +69,9 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 col-sm-6 col-xs-6">
-                            <a href="/auth/google" target="_blank" class="btn btn-lg btn-danger">Google+ Login</a>
+                        <div class="">
+                            <a href="/auth/google" class="btn btn-lg btn-danger">Google+</a>
+                            <a href="/auth/facebook" class="btn btn-lg btn-primary pull-right">Facebook</a>
                         </div>
                     </form>
                 </div>

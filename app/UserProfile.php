@@ -12,7 +12,7 @@ class UserProfile extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'user_id', 'profile_type', 'bio',
+      'name', 'email', 'user_id', 'profile_type', 'bio',
     ];
 
     public function user()

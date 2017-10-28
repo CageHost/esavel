@@ -70,6 +70,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'username' => $data['name'],
             'password' => bcrypt($data['password']),
         ]);
     }
@@ -82,19 +83,67 @@ class RegisterController extends Controller
      */
     protected function createGoogleUser(array $data)
     {
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email']
-        ]);
-
-        $userId = $user->id;
-
         $userProfile = UserProfile::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'profile_type' => $data['profile_type'],
-            'user_id' => $userId,
+            // 'user_id' => $userId,
         ]);
+
+        // TODO: change to UserProfile::user_id
+        $hasUser = User::where('email', $data['email'])->first();
+        if($hasUser) {
+          $userProfile->user_id = $hasUser->id;
+          $userProfile->save();
+          return $hasUser;
+          // $this->guard()->login($hasUser);
+          // return redirect('/home');
+        }
+
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'username' => $data['name'],
+        ]);
+
+        $userProfile->user_id = $user->id;
+        $userProfile->save();
+
+        return $user;
+    }
+
+    /**
+     * Create a new Fcebook user profile after a valid registration.
+     *
+     * @param  array  $data
+     * @return \App\User
+     */
+    protected function createFacebookUser(array $data)
+    {
+        $userProfile = UserProfile::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'profile_type' => $data['profile_type'],
+            // 'user_id' => $userId,
+        ]);
+
+        $hasUser = User::where('email', $data['email'])->first();
+        if($hasUser)
+        {
+          $userProfile->user_id = $hasUser->id;
+          $userProfile->save();
+          return $hasUser;
+          // $this->guard()->login($hasUser);
+          // return redirect('/home');
+        }
+
+        $user = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'username' => $data['name'],
+        ]);
+        $userProfile->user_id = $user->id;
+        $userProfile->save();
 
         return $user;
     }
@@ -106,7 +155,7 @@ class RegisterController extends Controller
      */
     public function redirectToProvider()
     {
-        return Socialite::driver('google')->scopes('email')->redirect();
+        return Socialite::driver('google')->scopes('email')->stateless()->redirect();
     }
 
     /**
@@ -116,7 +165,7 @@ class RegisterController extends Controller
      */
     public function handleProviderCallback()
     {
-        $socialUser = Socialite::driver('google')->user();
+        $socialUser = Socialite::driver('google')->stateless()->user();
         // $token = $user->token;
 
         $emails = $socialUser->user['emails'];
@@ -126,14 +175,48 @@ class RegisterController extends Controller
         $data['profile_type'] = 'google';
 
         $hasProfile = UserProfile::where('email', $data['email'])->where('profile_type', 'google')->first();
-        if($hasProfile)
-        {
+        if($hasProfile) {
           $user = $hasProfile->user()->first();
           $this->guard()->login($user);
           return redirect('/home');
         }
 
         event(new Registered($user = $this->createGoogleUser($data)));
+        $this->guard()->login($user);
+        return redirect('/home');
+    }
+
+    /**
+     * Redirect the user to the Facebook authentication page.
+     *
+     * @return Response
+     */
+    public function redirectFacebook()
+    {
+        return Socialite::driver('facebook')->scopes('email')->stateless()->redirect();
+    }
+
+    /**
+     * Obtain the user information from Facebook.
+     *
+     * @return Response
+     */
+    public function handleFacebook()
+    {
+        $socialUser = Socialite::driver('facebook')->stateless()->user();
+
+        $data['name'] = $socialUser->name;
+        $data['email'] = $socialUser->email;
+        $data['profile_type'] = 'facebook';
+
+        $hasProfile = UserProfile::where('email', $data['email'])->where('profile_type', 'facebook')->first();
+        if($hasProfile) {
+          $user = $hasProfile->user()->first();
+          $this->guard()->login($user);
+          return redirect('/home');
+        }
+
+        event(new Registered($user = $this->createFacebookUser($data)));
         $this->guard()->login($user);
         return redirect('/home');
     }

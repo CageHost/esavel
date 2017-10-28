@@ -61,6 +61,11 @@
                             </div>
                         </div>
                     </form>
+
+                    <div class="">
+                        <a href="/auth/google" class="btn btn-lg btn-danger">Google+</a>
+                        <a href="/auth/facebook" class="btn btn-lg btn-primary pull-right">Facebook</a>
+                    </div>
                 </div>
             </div>
         </div>
