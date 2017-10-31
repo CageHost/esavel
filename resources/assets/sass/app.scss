@@ -7,3 +7,56 @@
 
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+.navbar-default {
+  background-color: #1f1f1f;
+  border: none;
+  // padding: 5px;
+}
+
+.navbar-default .navbar-brand {
+  padding: 0;
+  height: auto;
+}
+
+
+.navbar-default .navbar-brand img {
+  width: 100%;
+  padding: 15px;
+  position: relative;
+  top: 2px;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #999;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 24px;
+  text-align: right;
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+  padding: 24px;
+  text-align: right;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+  }
+}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #8B0000;
+    font-weight: bold;
+}
+
+.navbar-default .navbar-toggle {
+  border-color: #444;
+  margin: 15px;
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  border: none;
+}
