@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-<user-profile-component></user-profile-component>
+<teams-component></teams-component>
 @endsection

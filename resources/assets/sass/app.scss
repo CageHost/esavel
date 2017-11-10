@@ -60,3 +60,50 @@
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
   border: none;
 }
+
+.card .panel {
+  border-color: #222;
+  border: none;
+  border-radius: 0;
+}
+
+.card .panel-heading {
+  max-height: 250px;
+  overflow: hidden;
+  padding: 0;
+  border-radius: 0;
+  border-bottom: none;
+  text-align: center;
+}
+
+.card .panel-body {
+  border-top: none;
+}
+
+.card .card-title {
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 140%;
+  line-height: 140%;
+}
+
+.card-title a{
+  color: #d50000;
+}
+
+.card-img-top {
+  width: 100%;
+}
+
+.card a.btn {
+  margin-bottom: 5px;
+}
+
+/* TEAM PAGE */
+
+.profile .title-name {
+  font-weight: bold;
+  letter-spacing: 1px;
+}

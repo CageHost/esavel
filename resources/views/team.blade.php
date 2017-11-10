@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-<user-profile-component></user-profile-component>
+<team-component alias="{{$alias}}"></team-component>
 @endsection

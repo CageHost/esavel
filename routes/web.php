@@ -20,6 +20,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/profile', 'ProfileController@index')->name('profile');
 
+Route::middleware(['auth'])->group(function () {
+    Route::get('/games', 'GameController@index')->name('games');
+    Route::get('/games/{id}', 'GameController@show');
+    Route::get('/teams', 'TeamController@index')->name('teams');
+    Route::get('/teams/{id}', 'TeamController@show');
+});
+
 Route::get('auth/google', 'Auth\RegisterController@redirectToProvider');
 Route::get('auth/google/callback', 'Auth\RegisterController@handleProviderCallback');
 
@@ -30,4 +37,8 @@ Route::get('/user', 'UserController@index');
 
 Route::prefix('lapi')->middleware(['auth'])->namespace('Lapi')->group(function () {
     Route::get('/user', 'UserController@index');
+    Route::get('/games', 'GameController@index');
+    Route::get('/games/{id}', 'GameController@show');
+    Route::get('/teams', 'TeamController@index');
+    Route::get('/teams/{id}', 'TeamController@show');
 });

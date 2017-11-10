@@ -28,7 +28,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/home') }}">
                         <img src="/images/logo.png" alt="{{ config('app.name', 'Laravel') }}">
                     </a>
                 </div>
@@ -41,6 +41,10 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ route('games') }}">Games</a></li>
+                        <li><a href="{{ route('teams') }}">Teams</a></li>
+                        <li><a href="{{ route('login') }}">Events</a></li>
+                        <li><a href="{{ route('login') }}">Prizes</a></li>
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>

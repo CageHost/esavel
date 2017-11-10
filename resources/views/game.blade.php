@@ -1,5 +1,5 @@
 @extends('layouts.app')
 
 @section('content')
-<user-profile-component></user-profile-component>
+<game-component alias="{{$alias}}"></game-component>
 @endsection

@@ -5,7 +5,10 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+                <div class="panel-heading">
+                  Register
+                  <a href="{{ route('login') }}" class="pull-right">Ready to login?</a>
+                </div>
 
                 <div class="panel-body">
                     <form class="form-horizontal" method="POST" action="{{ route('register') }}">
@@ -68,12 +71,16 @@
                                 </button>
                             </div>
                         </div>
-
-                        <div class="">
-                            <a href="/auth/google" class="btn btn-lg btn-danger">Google+</a>
-                            <a href="/auth/facebook" class="btn btn-lg btn-primary pull-right">Facebook</a>
-                        </div>
                     </form>
+
+                    <div class="row">
+                      <div class="col-md-4 form-group">
+                        <a href="/auth/google" class="btn btn-lg btn-danger btn-block">Google+</a>
+                      </div>
+                      <div class="col-md-4 col-md-offset-4 form-group">
+                        <a href="/auth/facebook" class="btn btn-lg btn-primary btn-block">Facebook</a>
+                      </div>
+                    </div>
                 </div>
             </div>
         </div>
