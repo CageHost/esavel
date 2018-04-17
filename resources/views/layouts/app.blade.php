@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
 </head>
 <body>
     <div id="app">
@@ -29,7 +30,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/home') }}">
-                        <img src="/images/logo.png" alt="{{ config('app.name', 'Laravel') }}">
+                        <img src="/images/logo.png" alt="{{ config('app.name', 'eSportAlliance') }}">
                     </a>
                 </div>
 
@@ -43,7 +44,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{{ route('games') }}">Games</a></li>
                         <li><a href="{{ route('teams') }}">Teams</a></li>
-                        <li><a href="{{ route('login') }}">Events</a></li>
+                        <li><a href="{{ route('events') }}">Events</a></li>
                         <li><a href="{{ route('login') }}">Prizes</a></li>
                         <!-- Authentication Links -->
                         @guest

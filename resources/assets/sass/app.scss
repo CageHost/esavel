@@ -21,7 +21,6 @@
 
 
 .navbar-default .navbar-brand img {
-  width: 100%;
   padding: 15px;
   position: relative;
   top: 2px;
@@ -68,7 +67,7 @@
 }
 
 .card .panel-heading {
-  max-height: 250px;
+  max-height: 200px;
   overflow: hidden;
   padding: 0;
   border-radius: 0;
@@ -85,12 +84,20 @@
   letter-spacing: 1px;
   margin-top: 5px;
   font-weight: bold;
-  font-size: 140%;
   line-height: 140%;
+}
+
+.card p {
+  font-size: 90%;
 }
 
 .card-title a{
   color: #d50000;
+  text-decoration: none;
+}
+
+.card-title a:hover {
+  color: #333;
 }
 
 .card-img-top {
@@ -106,4 +113,23 @@
 .profile .title-name {
   font-weight: bold;
   letter-spacing: 1px;
+}
+
+.profile-bg {
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.profile-logo {
+  position: absolute;
+  bottom: 0;
+  padding: 0;
+}
+
+.profile-logo img {
+  max-width: 100%;
+  max-height: 300px;
+  margin-top: -50%;
 }

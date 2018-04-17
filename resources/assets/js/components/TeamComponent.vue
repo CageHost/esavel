@@ -1,11 +1,12 @@
 <template>
     <div class="container profile">
+        <div class="row profile-bg" :style="{'background-image': 'url(' + team.background + ')'}">
+          <img class="profile-logo col-sm-3 col-xs-4" :src="team.avatar" alt="Logo">
+        </div>
         <div class="row">
-            <div class="col-md-4 col-xs-6">
-            <img class="card-img-top" :src="team.avatar" alt="logo">
-          </div>
-          <div class="col-md-8 col-xs-6">
+          <div class="col-md-9 col-sm-8">
             <h1 class="title-name">{{team.name}}</h1>
+            <p>{{team.description}}</p>
           </div>
         </div>
     </div>

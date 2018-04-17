@@ -1,11 +1,12 @@
 <template>
     <div class="container profile">
         <div class="row">
-            <div class="col-md-4 col-xs-6">
-            <img class="card-img-top" :src="game.avatar" alt="logo">
+          <div class="col-md-4 col-xs-6">
+            <img class="card-img-top" :src="game.avatar" alt="Logo">
           </div>
           <div class="col-md-8 col-xs-6">
             <h1 class="title-name">{{game.name}}</h1>
+            <p>{{game.description}}</p>
           </div>
         </div>
     </div>

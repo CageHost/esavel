@@ -1,0 +1,41 @@
+// Settings
+// @import "settings";
+
+// Foundation
+// @import "node_modules/foundation-sites/scss/foundation";
+
+// Include Everything (True) for the Flex Grid :);
+// @include foundation-everything(true);
+
+// @import "node_modules/vue-material/dist/vue-material.css";
+
+@import "~vue-material/dist/vue-material";
+@import "~vue-material/dist/theme/mixins";
+@import "~vue-material/src/components/MdLayout/mixins";
+// @import "~vue-material/dist/theme/default-dark";
+
+@import "~vue-material/dist/theme/engine"; // Import the theme engine
+
+@include md-register-theme("default", (
+  primary: md-get-palette-color(grey, 900), // The primary color of your application
+  accent: md-get-palette-color(pink, 500), // The accent or secondary color
+  theme: dark
+));
+
+@import "~vue-material/dist/theme/all"; // Apply the theme
+
+body {
+  background: #fafafa;
+}
+
+.md-toolbar-section-start > button {
+  @include md-layout-medium-and-up {
+    display: none;
+  }
+}
+
+.md-toolbar .md-toolbar-offset {
+  @include md-layout-medium-and-up {
+    margin-left: 0;
+  }
+}
