@@ -19,23 +19,47 @@
 @include md-register-theme("default", (
   primary: md-get-palette-color(grey, 900), // The primary color of your application
   accent: md-get-palette-color(pink, 500), // The accent or secondary color
-  theme: dark
+  theme: light
 ));
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
 
 body {
-  background: #fafafa;
+  // background: #fafafa;
 }
 
-.md-toolbar-section-start > button {
-  @include md-layout-medium-and-up {
+.md-content.md-theme-default {
+  background: #f5f8fa;
+}
+
+.md-toolbar-section-end > button {
+  @include md-layout-small-and-up {
     display: none;
   }
 }
 
 .md-toolbar .md-toolbar-offset {
   @include md-layout-medium-and-up {
+    // margin-left: 0;
+  }
+}
+
+#logo-title {
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 1px #000;
+  margin-left: 8px;
+
+  @include md-layout-medium-and-up {
     margin-left: 0;
   }
+
+  span {
+    color: #bf383a;
+  }
+}
+
+#default-page {
+  min-height: 800px;
 }

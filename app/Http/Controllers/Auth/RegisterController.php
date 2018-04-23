@@ -178,12 +178,12 @@ class RegisterController extends Controller
         if($hasProfile) {
           $user = $hasProfile->user()->first();
           $this->guard()->login($user);
-          return redirect('/home');
+          return redirect('/spa/profile');
         }
 
         event(new Registered($user = $this->createGoogleUser($data)));
         $this->guard()->login($user);
-        return redirect('/home');
+        return redirect('/spa/profile');
     }
 
     /**

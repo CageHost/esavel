@@ -10,14 +10,14 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,500,700,400italic|Material+Icons">
-    
+
     <link href="{{ asset('css/spa.css') }}" rel="stylesheet">
 
     <title>ESportAlliance</title>
 </head>
 <body>
     <div id="app">
-        <default-layout></default-layout>
+        <app-container></app-container>
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>

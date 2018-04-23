@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::get('/profile', 'ProfileController@index')->name('profile');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/games', 'GameController@index')->name('games');
@@ -47,4 +47,7 @@ Route::prefix('lapi')->middleware(['auth'])->namespace('Lapi')->group(function (
     Route::get('/events/{id}', 'EventController@show');
 });
 
-Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+Route::prefix('spa')->group(function () {
+  Route::get('/', 'SpaController@index');
+  Route::get('/{any}', 'SpaController@index')->where('any', '.*');
+});

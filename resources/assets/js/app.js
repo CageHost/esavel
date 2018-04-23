@@ -34,27 +34,46 @@ Vue.component('team-component', require('./components/TeamComponent.vue'));
 Vue.component('events-component', require('./components/EventsComponent.vue'));
 Vue.component('event-component', require('./components/EventComponent.vue'));
 
+Vue.component('app-container', require('./AppContainer.vue'));
+
+import AppContainer from './AppContainer.vue'
 import DefaultLayout from './layouts/DefaultLayout.vue'
+import WelcomePage from './pages/Welcome'
 import ProfilePage from './pages/ProfilePage'
+import LoginPage from './pages/Login'
 
 const router = new VueRouter({
     mode: 'history',
     routes: [
-        {
-            path: '/test',
-            name: 'test',
-            component: Test,
-        },
-        {
-            path: '/profile',
-            name: 'profile',
-            component: ProfilePage,
-        },
-    ],
+      {
+          path: '/spa/welcome',
+          name: 'home',
+          component: WelcomePage,
+      },
+      { path: '/spa', component: DefaultLayout,
+        children: [
+          {
+              path: 'test',
+              name: 'test',
+              component: Test,
+          },
+          {
+              path: 'login',
+              name: 'login',
+              component: LoginPage,
+          },
+          {
+              path: 'profile',
+              name: 'profile',
+              component: ProfilePage,
+          },
+        ]
+      }
+    ]
 });
 
 const app = new Vue({
     el: '#app',
-    components: { DefaultLayout },
+    components: { AppContainer },
     router
 });
