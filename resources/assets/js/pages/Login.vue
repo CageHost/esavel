@@ -18,8 +18,9 @@
         <md-progress-bar md-mode="indeterminate" v-if="sending" />
 
         <md-card-actions>
-          <md-button to="/auth/google" class="md-raised md-accent">Google Login</md-button>
-          <md-button type="submit" class="md-raised md-primary" :disabled="sending">Login</md-button>
+          <md-button href="/auth/google" class="md-raised md-accent">Google</md-button>
+          <md-button href="/auth/facebook" class="md-raised md-primary">Facebook</md-button>
+          <md-button type="submit" class="md-raised" :disabled="sending">Login</md-button>
         </md-card-actions>
       </md-card>
 

@@ -32,7 +32,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -178,12 +178,12 @@ class RegisterController extends Controller
         if($hasProfile) {
           $user = $hasProfile->user()->first();
           $this->guard()->login($user);
-          return redirect('/spa/profile');
+          return redirect('/');
         }
 
         event(new Registered($user = $this->createGoogleUser($data)));
         $this->guard()->login($user);
-        return redirect('/spa/profile');
+        return redirect('/');
     }
 
     /**
@@ -209,15 +209,18 @@ class RegisterController extends Controller
         $data['email'] = $socialUser->email;
         $data['profile_type'] = 'facebook';
 
-        $hasProfile = UserProfile::where('email', $data['email'])->where('profile_type', 'facebook')->first();
+        $hasProfile = UserProfile::where('email', $data['email'])
+          ->where('profile_type', 'facebook')->first();
         if($hasProfile) {
           $user = $hasProfile->user()->first();
           $this->guard()->login($user);
-          return redirect('/home');
+          return redirect('/');
         }
 
-        event(new Registered($user = $this->createFacebookUser($data)));
+        event(new Registered(
+          $user = $this->createFacebookUser($data)
+        ));
         $this->guard()->login($user);
-        return redirect('/home');
+        return redirect('/');
     }
 }

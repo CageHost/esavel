@@ -39,23 +39,26 @@ Vue.component('app-container', require('./AppContainer.vue'));
 import AppContainer from './AppContainer.vue'
 import DefaultLayout from './layouts/DefaultLayout.vue'
 import WelcomePage from './pages/Welcome'
+import PageNotFound from './pages/PageNotFound'
 import ProfilePage from './pages/ProfilePage'
+import EventsPage from './pages/EventsPage'
+import EventPage from './pages/EventPage'
 import LoginPage from './pages/Login'
 
 const router = new VueRouter({
     mode: 'history',
     routes: [
       {
-          path: '/spa/welcome',
+          path: '/welcome',
           name: 'home',
           component: WelcomePage,
       },
-      { path: '/spa', component: DefaultLayout,
+      { path: '/', component: DefaultLayout,
         children: [
           {
               path: 'test',
               name: 'test',
-              component: Test,
+              component: LoginPage,
           },
           {
               path: 'login',
@@ -67,6 +70,13 @@ const router = new VueRouter({
               name: 'profile',
               component: ProfilePage,
           },
+          {
+              path: 'events',
+              name: 'events',
+              component: EventsPage,
+          },
+          { path: '/event/:id', component: EventPage },
+          { path: ':wildcard', component: PageNotFound },
         ]
       }
     ]

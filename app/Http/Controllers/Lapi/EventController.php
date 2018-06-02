@@ -11,7 +11,7 @@ class EventController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     public function index()
@@ -24,9 +24,11 @@ class EventController extends Controller
         return response()->json($events);
     }
 
-    public function show($alias)
+    public function show($id)
     {
-        $event = Event::where('alias', '=', $alias)->with('types')->firstOrFail();
+        // $event = Event::find($id)->with('types')->firstOrFail();
+        $event = Event::with('types')->find($id);
+        // $event = Event::where('alias', '=', $alias)->with('types')->firstOrFail();
         return response()->json($event);
     }
 }

@@ -30,11 +30,12 @@
           </div>-->
 
           <div class="md-toolbar-section-end">
-            <md-menu md-size="small" md-direction="bottom-end">
-              <router-link to="login" tag="md-button">Events</router-link>
-              <router-link to="login" tag="md-button">Teams</router-link>
-              <router-link to="login" tag="md-button">Games</router-link>
-              <router-link to="login" tag="md-button">Prizes</router-link>
+            <md-menu md-size="small" md-direction="bottom-end" >
+              <router-link to="/events" tag="md-button">Events</router-link>
+              <router-link to="/" tag="md-button">Teams</router-link>
+              <router-link to="/" tag="md-button">Games</router-link>
+              <router-link to="/" tag="md-button">Prizes</router-link>
+              <router-link to="login" tag="md-button">Login</router-link>
               <md-button md-menu-trigger>awc737</md-button>
               <md-menu-content>
                 <router-link to="profile" tag="md-menu-item">

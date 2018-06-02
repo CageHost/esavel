@@ -10,7 +10,7 @@
             <img class="card-img-top" :src="event.avatar" alt="Avatar">
           </md-avatar>
           <div class="md-title">{{event.name}}</div>
-          <div class="md-subhead">{{eventTypeName}}</div>
+          <div class="md-subhead">{{event.types[0].name}}</div>
         </md-card-header>
       </md-card-area>
 
@@ -29,7 +29,7 @@
               </md-button>
             </md-card-expand-trigger>
             <div>
-              <md-button :to="'/event/'+event.id" class="md-raised md-accent">Join</md-button>
+              <md-button to="/event/tournament-of-power" class="md-raised md-accent">Join</md-button>
             </div>
           </md-card-actions>
 
@@ -70,22 +70,28 @@
 </style>
 
 <script>
+  import axios from 'axios'
+
   export default {
-    props: ['event'],
-    computed: {
-      eventTypeName: function () {
-        const defaultEventType = 'General'
-        const eventType = this.event.types[0] ? this.event.types[0].name : defaultEventType;
-        return eventType;
+      props: ['id'],
+      data() {
+        return {
+          event: {
+            types: [
+              {
+                name: ''
+              }
+            ]
+          }
+        }
+      },
+      mounted() {
+        axios.get('/lapi/event/' + this.$props.id).then(response => {
+          this.event = response.data
+          console.log(this.event)
+        }).catch(e => {
+          this.errors.push(e)
+        })
       }
-    }
-    /*
-    props: {
-      'event': {
-        name: 'shit',
-        types: [{name: 'shit'}]
-      }
-    }
-    */
   }
 </script>
