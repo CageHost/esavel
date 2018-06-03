@@ -24,11 +24,11 @@ class EventController extends Controller
         return response()->json($events);
     }
 
-    public function show($id)
+    public function show($alias)
     {
-        // $event = Event::find($id)->with('types')->firstOrFail();
-        $event = Event::with('types')->find($id);
-        // $event = Event::where('alias', '=', $alias)->with('types')->firstOrFail();
+        // TODO: example works for id
+        //  $event = Event::with('types')->find($id);
+        $event = Event::where('alias', '=', $alias)->with('types')->firstOrFail();
         return response()->json($event);
     }
 }

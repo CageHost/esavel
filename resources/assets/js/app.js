@@ -75,7 +75,7 @@ const router = new VueRouter({
               name: 'events',
               component: EventsPage,
           },
-          { path: '/event/:id', component: EventPage },
+          { path: '/event/:alias', component: EventPage },
           { path: ':wildcard', component: PageNotFound },
         ]
       }

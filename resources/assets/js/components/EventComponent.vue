@@ -29,7 +29,7 @@
               </md-button>
             </md-card-expand-trigger>
             <div>
-              <md-button :to="'/event/'+event.id" class="md-raised md-accent">Join</md-button>
+              <md-button :to="'/event/'+event.alias" class="md-raised md-accent">Join</md-button>
             </div>
           </md-card-actions>
 

@@ -683,17 +683,21 @@ module.exports = defaults;
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(67)
+}
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(66)
+var __vue_script__ = __webpack_require__(70)
 /* template */
-var __vue_template__ = __webpack_require__(72)
+var __vue_template__ = __webpack_require__(71)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-2ea6dda1"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -704,7 +708,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/EventsComponent.vue"
+Component.options.__file = "resources/assets/js/components/EventComponent.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -714,9 +718,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-c2508794", Component.options)
+    hotAPI.createRecord("data-v-2ea6dda1", Component.options)
   } else {
-    hotAPI.reload("data-v-c2508794", Component.options)
+    hotAPI.reload("data-v-2ea6dda1", Component.options)
 ' + '  }
   module.hot.dispose(function (data) {
     disposed = true
@@ -12109,21 +12113,17 @@ module.exports = Component.exports
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(67)
-}
 var normalizeComponent = __webpack_require__(1)
 /* script */
-var __vue_script__ = __webpack_require__(70)
+var __vue_script__ = __webpack_require__(66)
 /* template */
-var __vue_template__ = __webpack_require__(71)
+var __vue_template__ = __webpack_require__(72)
 /* template functional */
   var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = injectStyle
+var __vue_styles__ = null
 /* scopeId */
-var __vue_scopeId__ = "data-v-2ea6dda1"
+var __vue_scopeId__ = null
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -12134,7 +12134,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/EventComponent.vue"
+Component.options.__file = "resources/assets/js/components/EventsComponent.vue"
 if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
@@ -12144,9 +12144,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-2ea6dda1", Component.options)
+    hotAPI.createRecord("data-v-c2508794", Component.options)
   } else {
-    hotAPI.reload("data-v-2ea6dda1", Component.options)
+    hotAPI.reload("data-v-c2508794", Component.options)
 ' + '  }
   module.hot.dispose(function (data) {
     disposed = true
@@ -12360,8 +12360,8 @@ Vue.component('game-component', __webpack_require__(54));
 Vue.component('games-component', __webpack_require__(57));
 Vue.component('teams-component', __webpack_require__(60));
 Vue.component('team-component', __webpack_require__(63));
-Vue.component('events-component', __webpack_require__(6));
-Vue.component('event-component', __webpack_require__(17));
+Vue.component('events-component', __webpack_require__(17));
+Vue.component('event-component', __webpack_require__(6));
 
 Vue.component('app-container', __webpack_require__(18));
 
@@ -12397,7 +12397,7 @@ var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
             path: 'events',
             name: 'events',
             component: __WEBPACK_IMPORTED_MODULE_7__pages_EventsPage___default.a
-        }, { path: '/event/:id', component: __WEBPACK_IMPORTED_MODULE_8__pages_EventPage___default.a }, { path: ':wildcard', component: __WEBPACK_IMPORTED_MODULE_5__pages_PageNotFound___default.a }]
+        }, { path: '/event/:alias', component: __WEBPACK_IMPORTED_MODULE_8__pages_EventPage___default.a }, { path: ':wildcard', component: __WEBPACK_IMPORTED_MODULE_5__pages_PageNotFound___default.a }]
     }]
 });
 
@@ -77471,7 +77471,7 @@ if (false) {
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_axios__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EventComponent__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EventComponent__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__EventComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__EventComponent__);
 //
 //
@@ -77762,7 +77762,7 @@ var render = function() {
                         "md-button",
                         {
                           staticClass: "md-raised md-accent",
-                          attrs: { to: "/event/" + _vm.event.id }
+                          attrs: { to: "/event/" + _vm.event.alias }
                         },
                         [_vm._v("Join")]
                       )
@@ -78694,7 +78694,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_EventsComponent__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_EventsComponent__ = __webpack_require__(17);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_EventsComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_EventsComponent__);
 //
 //
@@ -78798,21 +78798,18 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_EventComponent__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_EventComponent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_EventComponent__);
 //
 //
 //
 //
 //
 //
-
-
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    EventComponent: __WEBPACK_IMPORTED_MODULE_0__components_EventComponent___default.a
-  },
   data: function data() {
     return {
       event: {}
@@ -78821,7 +78818,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('/lapi/event/' + this.$route.params.id).then(function (response) {
+    axios.get('/lapi/event/' + this.$route.params.alias).then(function (response) {
       console.log(response.data);
       _this.event = response.data;
     }).catch(function (e) {
@@ -78839,7 +78836,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("EventComponent", { attrs: { event: _vm.event } })], 1)
+  return _c(
+    "div",
+    [
+      _c("md-avatar", [
+        _c("img", {
+          staticClass: "card-img-top",
+          attrs: { src: _vm.event.avatar, alt: "Avatar" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("h1", [_vm._v(_vm._s(_vm.event.name))]),
+      _vm._v(" "),
+      _c("img", {
+        staticClass: "card-img-top",
+        attrs: { src: _vm.event.background, alt: "Background" }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

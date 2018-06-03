@@ -1,23 +1,22 @@
 <template>
   <div>
-    <EventComponent :event="event"/>
+    <md-avatar>
+      <img class="card-img-top" :src="event.avatar" alt="Avatar">
+    </md-avatar>
+    <h1>{{event.name}}</h1>
+    <img class="card-img-top" :src="event.background" alt="Background">
   </div>
 </template>
 
 <script>
-  import EventComponent from '../components/EventComponent';
-
   export default {
-    components:{
-      EventComponent: EventComponent
-    },
     data() {
       return {
         event: {}
       }
     },
     mounted() {
-      axios.get('/lapi/event/' + this.$route.params.id).then(response => {
+      axios.get('/lapi/event/' + this.$route.params.alias).then(response => {
         console.log(response.data)
         this.event = response.data
       }).catch(e => {
