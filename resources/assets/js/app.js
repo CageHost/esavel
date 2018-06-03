@@ -32,7 +32,8 @@ Vue.component('games-component', require('./components/GamesComponent.vue'));
 Vue.component('teams-component', require('./components/TeamsComponent.vue'));
 Vue.component('team-component', require('./components/TeamComponent.vue'));
 Vue.component('events-component', require('./components/EventsComponent.vue'));
-Vue.component('event-component', require('./components/EventComponent.vue'));
+// TODO: these may be irrelevant
+Vue.component('event-card', require('./components/EventCard.vue'));
 
 Vue.component('app-container', require('./AppContainer.vue'));
 

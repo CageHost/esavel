@@ -28,7 +28,8 @@ class EventController extends Controller
     {
         // TODO: example works for id
         //  $event = Event::with('types')->find($id);
-        $event = Event::where('alias', '=', $alias)->with('types')->firstOrFail();
+        // TODO: Don't return it with the pivot columns lol
+        $event = Event::where('alias', '=', $alias)->with('types')->with('games')->firstOrFail();
         return response()->json($event);
     }
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="md-layout md-gutter">
       <div v-for="event in events">
-        <EventComponent :event="event"/>
+        <EventCard :event="event"/>
       </div>
     </div>
 </template>
@@ -9,15 +9,15 @@
 <script>
   import axios from 'axios'
 
-  import EventComponent from './EventComponent';
+  import EventCard from './EventCard';
 
   export default {
     components:{
-      EventComponent: EventComponent
+      EventCard: EventCard
     },
     props: ['events'],
     mounted() {
-      console.log('did')
+      console.log('erdep')
     }
   }
 </script>
