@@ -11,7 +11,7 @@ class GameController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     public function index()
@@ -20,6 +20,7 @@ class GameController extends Controller
         $games = Game::orderBy('name', 'desc')
           ->take(100)
           ->get();
+
         return response()->json($games);
     }
 

@@ -44,6 +44,8 @@ import PageNotFound from './pages/PageNotFound'
 import ProfilePage from './pages/ProfilePage'
 import EventsPage from './pages/EventsPage'
 import EventPage from './pages/EventPage'
+import GamesPage from './pages/GamesPage'
+import GamePage from './pages/GamePage'
 import LoginPage from './pages/Login'
 
 const router = new VueRouter({
@@ -76,7 +78,14 @@ const router = new VueRouter({
               name: 'events',
               component: EventsPage,
           },
+          {
+              path: 'games',
+              name: 'gamesPage',
+              component: GamesPage,
+          },
+          // TODO: wildcard does not catch /event/*
           { path: '/event/:alias', component: EventPage },
+          { path: '/game/:alias', component: GamePage },
           { path: ':wildcard', component: PageNotFound },
         ]
       }

@@ -23,19 +23,20 @@
     <md-app md-waterfall md-mode="flexible">
       <md-app-toolbar class="md-large md-primary">
         <div class="md-toolbar-row">
-          <!-- <div class="md-toolbar-section-start">
+          <!--
+          <div class="md-toolbar-section-start">
             <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
               <md-icon>menu</md-icon>
             </md-button>
-          </div>-->
-
+          </div>
+          -->
           <div class="md-toolbar-section-end">
             <md-menu md-size="small" md-direction="bottom-end" >
               <router-link to="/events" tag="md-button">Events</router-link>
-              <router-link to="/" tag="md-button">Teams</router-link>
-              <router-link to="/" tag="md-button">Games</router-link>
-              <router-link to="/" tag="md-button">Prizes</router-link>
-              <router-link to="login" tag="md-button">Login</router-link>
+              <router-link to="/teams" tag="md-button">Teams</router-link>
+              <router-link :to="{name:'gamesPage'}" tag="md-button">Games</router-link>
+              <router-link to="/prizes" tag="md-button">Prizes</router-link>
+              <router-link to="/login" tag="md-button">Login</router-link>
               <md-button md-menu-trigger>awc737</md-button>
               <md-menu-content>
                 <router-link to="profile" tag="md-menu-item">
@@ -45,10 +46,12 @@
                   <md-icon>exit_to_app</md-icon>Logout
                 </router-link>
               </md-menu-content>
+
             </md-menu>
             <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
               <md-icon>menu</md-icon>
             </md-button>
+
           </div>
         </div>
 
@@ -58,28 +61,28 @@
         </div>
       </md-app-toolbar>
 
-      <md-app-drawer :md-active.sync="menuVisible">
-        <md-toolbar class="md-transparent" md-elevation="0">Navigation</md-toolbar>
-
+      <md-app-drawer md-permanent="clipped" :md-active.sync="menuVisible">
+        <md-toolbar :md-elevation="1">
+          <md-avatar class="md-avatar-icon md-accent">
+            <md-icon>person</md-icon>
+          </md-avatar>
+        </md-toolbar>
         <md-list>
           <md-list-item>
-            <md-icon>move_to_inbox</md-icon>
-            <span class="md-list-item-text">Inbox</span>
+            <md-icon class="md-primary">monetization_on</md-icon>
+            <span class="md-list-item-text">Points</span>
           </md-list-item>
-
           <md-list-item>
-            <md-icon>send</md-icon>
-            <span class="md-list-item-text">Sent Mail</span>
+            <md-icon>calendar_today</md-icon>
+            <span class="md-list-item-text">Events</span>
           </md-list-item>
-
           <md-list-item>
-            <md-icon>delete</md-icon>
-            <span class="md-list-item-text">Trash</span>
+            <md-icon>people</md-icon>
+            <span class="md-list-item-text">Friends</span>
           </md-list-item>
-
           <md-list-item>
             <md-icon>error</md-icon>
-            <span class="md-list-item-text">Spam</span>
+            <span class="md-list-item-text">Messages</span>
           </md-list-item>
         </md-list>
       </md-app-drawer>
@@ -87,6 +90,7 @@
       <md-app-content id="default-page">
         <router-view></router-view>
       </md-app-content>
+
     </md-app>
   </div>
 </template>

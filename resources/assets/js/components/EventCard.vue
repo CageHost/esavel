@@ -1,5 +1,5 @@
 <template>
-  <div class="md-layout-item">
+  <div class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100">
     <md-card md-with-hover>
         <md-card-area md-inset>
           <md-ripple>
@@ -21,7 +21,7 @@
               <md-icon>place</md-icon>{{event.location}}<br>
               &nbsp;<md-icon>calendar_today</md-icon>{{event.date}}<br>
               &nbsp;<md-icon>access_time</md-icon>{{event.time}}<br>
-              &nbsp;<md-icon>people</md-icon>{{event.time}}
+              &nbsp;<md-icon>people</md-icon>15
             </div>
           </md-card-content>
           <md-card-expand>
@@ -53,7 +53,6 @@
   }
 
   .md-card {
-    max-width: 320px;
     vertical-align: top;
   }
 </style>
