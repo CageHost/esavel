@@ -39,11 +39,14 @@ Vue.component('app-container', require('./AppContainer.vue'));
 
 import AppContainer from './AppContainer.vue'
 import DefaultLayout from './layouts/DefaultLayout.vue'
+import GuestLayout from './layouts/GuestLayout.vue'
 import WelcomePage from './pages/Welcome'
 import PageNotFound from './pages/PageNotFound'
 import ProfilePage from './pages/ProfilePage'
 import EventsPage from './pages/EventsPage'
 import EventPage from './pages/EventPage'
+import TeamsPage from './pages/TeamsPage'
+import TeamPage from './pages/TeamPage'
 import GamesPage from './pages/GamesPage'
 import GamePage from './pages/GamePage'
 import LoginPage from './pages/Login'
@@ -56,7 +59,7 @@ const router = new VueRouter({
           name: 'home',
           component: WelcomePage,
       },
-      { path: '/', component: DefaultLayout,
+      { path: '/', component: GuestLayout,
         children: [
           {
               path: 'test',
@@ -79,6 +82,11 @@ const router = new VueRouter({
               component: EventsPage,
           },
           {
+              path: 'teams',
+              name: 'teams',
+              component: TeamsPage,
+          },
+          {
               path: 'games',
               name: 'gamesPage',
               component: GamesPage,
@@ -86,6 +94,7 @@ const router = new VueRouter({
           // TODO: wildcard does not catch /event/*
           { path: '/event/:alias', component: EventPage },
           { path: '/game/:alias', component: GamePage },
+          { path: '/team/:alias', component: TeamPage },
           { path: ':wildcard', component: PageNotFound },
         ]
       }
