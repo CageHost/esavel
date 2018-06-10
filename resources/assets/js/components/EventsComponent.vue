@@ -1,6 +1,6 @@
 <template>
     <div class="md-layout md-gutter">
-      <EventCard :event="event" v-for="event in events"/>
+      <EventCard :key="event.id" :event="event" v-for="event in events"/>
     </div>
 </template>
 

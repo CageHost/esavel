@@ -36,15 +36,14 @@
               <router-link to="/teams" tag="md-button">Teams</router-link>
               <router-link :to="{name:'gamesPage'}" tag="md-button">Games</router-link>
               <router-link to="/prizes" tag="md-button">Prizes</router-link>
-              <router-link to="/login" tag="md-button">Login</router-link>
               <md-button md-menu-trigger>awc737</md-button>
               <md-menu-content>
                 <router-link to="profile" tag="md-menu-item">
                   <md-icon>account_circle</md-icon>Profile
                 </router-link>
-                <router-link to="/logout" tag="md-menu-item">
+                <md-menu-item href="/logout">
                   <md-icon>exit_to_app</md-icon>Logout
-                </router-link>
+                </md-menu-item>
               </md-menu-content>
 
             </md-menu>
@@ -88,7 +87,7 @@
       </md-app-drawer>
 
       <md-app-content id="default-page">
-        <router-view></router-view>
+        <slot></slot>
       </md-app-content>
 
     </md-app>

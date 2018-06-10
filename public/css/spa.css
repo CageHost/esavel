@@ -9510,6 +9510,15 @@ html.md-theme-default {
   margin-left: 8px;
 }
 
+#logo-title a {
+  color: #fff;
+  text-shadow: 1px 1px 1px #000;
+}
+
+#logo-title a:hover {
+  text-decoration: none;
+}
+
 @media (min-width: 960px) {
   #logo-title {
     margin-left: 0;

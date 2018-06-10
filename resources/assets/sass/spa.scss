@@ -51,6 +51,14 @@ body {
   text-shadow: 1px 1px 1px #000;
   margin-left: 8px;
 
+  a {
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
   @include md-layout-medium-and-up {
     margin-left: 0;
   }

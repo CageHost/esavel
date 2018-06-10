@@ -18,11 +18,14 @@
         </div>
         <div class="md-toolbar-row">
           <div id="logo-title" class="md-display-1">
-            <span>eS</span>port<span>A</span>lliance</div>
+            <router-link to="/">
+              <span>eS</span>port<span>A</span>lliance
+            </router-link>
+          </div>
         </div>
       </md-app-toolbar>
       <md-app-content id="default-page">
-        <router-view></router-view>
+        <slot/>
       </md-app-content>
     </md-app>
   </div>

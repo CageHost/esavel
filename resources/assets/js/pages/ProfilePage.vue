@@ -23,16 +23,17 @@
     data() {
       return {
         user: {
-          name: 'shit intruder alert'
+          name: 'Intruder'
         }
       }
     },
     mounted() {
+      // TODO: Pass from AppContainer, or use VueX!
       axios.get('/lapi/user').then(response => {
         this.user = response.data
-        console.log(this.user.name)
       }).catch(e => {
-        this.errors.push(e)
+        // this.errors.push(e)
+        console.log('error')
       })
     }
   }
