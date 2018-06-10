@@ -76657,7 +76657,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "\n.md-layout-item[data-v-6b67a99c] {\n  margin-top: 16px;\n  margin-bottom: 16px;\n}\n.md-card[data-v-6b67a99c] {\n  vertical-align: top;\n}\n", ""]);
+exports.push([module.i, "\n.md-layout-item[data-v-6b67a99c] {\n  margin-top: 16px;\n  margin-bottom: 16px;\n}\n.md-card[data-v-6b67a99c] {\n  vertical-align: top;\n}\n.md-card .md-card-content[data-v-6b67a99c] {\n    padding-top: 8px;\n}\n.md-card .md-card-content .md-layout-item[data-v-6b67a99c] {\n      margin: 0;\n      line-height: 24px;\n}\n.md-card .md-card-content .md-layout-item .md-icon[data-v-6b67a99c] {\n        margin: 0 3px 0 0;\n}\n.md-card .md-card-content .md-layout-item.text-right[data-v-6b67a99c] {\n      text-align: right;\n}\n.md-card .md-card-content .md-layout-item.text-right .md-icon[data-v-6b67a99c] {\n        margin: 0 0 0 3px;\n}\n", ""]);
 
 // exports
 
@@ -76701,6 +76701,28 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -76833,27 +76855,34 @@ var render = function() {
           ),
           _vm._v(" "),
           _c("md-card-content", [
-            _c(
-              "div",
-              { staticClass: "card-reservation" },
-              [
-                _c("md-icon", [_vm._v("place")]),
-                _vm._v(_vm._s(_vm.event.location)),
-                _c("br"),
-                _vm._v("\n             "),
-                _c("md-icon", [_vm._v("calendar_today")]),
-                _vm._v(_vm._s(_vm.event.date)),
-                _c("br"),
-                _vm._v("\n             "),
-                _c("md-icon", [_vm._v("access_time")]),
-                _vm._v(_vm._s(_vm.event.time)),
-                _c("br"),
-                _vm._v("\n             "),
-                _c("md-icon", [_vm._v("people")]),
-                _vm._v("15\n          ")
-              ],
-              1
-            )
+            _c("div", { staticClass: "md-layout" }, [
+              _c(
+                "div",
+                { staticClass: "md-layout-item" },
+                [
+                  _c("md-icon", [_vm._v("place")]),
+                  _vm._v(_vm._s(_vm.event.location)),
+                  _c("br"),
+                  _vm._v(" "),
+                  _c("md-icon", [_vm._v("people")]),
+                  _vm._v("15 participants\n            ")
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "md-layout-item text-right" },
+                [
+                  _vm._v("\n              " + _vm._s(_vm.event.time)),
+                  _c("md-icon", [_vm._v("access_time")]),
+                  _c("br"),
+                  _vm._v("\n              " + _vm._s(_vm.event.date)),
+                  _c("md-icon", [_vm._v("calendar_today")])
+                ],
+                1
+              )
+            ])
           ]),
           _vm._v(" "),
           _c(

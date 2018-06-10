@@ -17,11 +17,15 @@
         </md-card-area>
 
           <md-card-content>
-            <div class="card-reservation">
-              <md-icon>place</md-icon>{{event.location}}<br>
-              &nbsp;<md-icon>calendar_today</md-icon>{{event.date}}<br>
-              &nbsp;<md-icon>access_time</md-icon>{{event.time}}<br>
-              &nbsp;<md-icon>people</md-icon>15
+            <div class="md-layout">
+              <div class="md-layout-item">
+                <md-icon>place</md-icon>{{event.location}}<br>
+                <md-icon>people</md-icon>15 participants
+              </div>
+              <div class="md-layout-item text-right">
+                {{event.time}}<md-icon>access_time</md-icon><br>
+                {{event.date}}<md-icon>calendar_today</md-icon>
+              </div>
             </div>
           </md-card-content>
           <md-card-expand>
@@ -54,7 +58,25 @@
 
   .md-card {
     vertical-align: top;
+    .md-card-content {
+      padding-top: 8px;
+      .md-layout-item {
+        margin: 0;
+        line-height: 24px;
+        .md-icon {
+          margin: 0 3px 0 0;
+        }
+      }
+      .md-layout-item.text-right {
+        text-align: right;
+        .md-icon {
+          margin: 0 0 0 3px;
+        }
+      }
+    }
   }
+
+
 </style>
 
 <script>
