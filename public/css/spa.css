@@ -9492,6 +9492,12 @@ html.md-theme-default {
   background-color: var(--md-theme-default-tooltip-on-background, rgba(97, 97, 97, 0.9));
 }
 
+@media (min-width: 945px) {
+  .md-medium-up-hide {
+    display: none;
+  }
+}
+
 .md-content.md-theme-default {
   background: #f5f8fa;
 }

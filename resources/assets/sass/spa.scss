@@ -24,6 +24,12 @@
 
 @import "~vue-material/dist/theme/all"; // Apply the theme
 
+.md-medium-up-hide {
+  @media (min-width: 945px) {
+    display: none;
+  }
+}
+
 body {
   // background: #fafafa;
 }

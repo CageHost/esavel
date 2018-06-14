@@ -20,48 +20,58 @@
 
 <template>
   <div class="page-container">
-    <md-app md-waterfall md-mode="flexible">
-      <md-app-toolbar class="md-large md-primary">
-        <div class="md-toolbar-row">
-          <!--
-          <div class="md-toolbar-section-start">
-            <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
-              <md-icon>menu</md-icon>
-            </md-button>
+    <md-app md-mode="reveal">
+      <md-app-toolbar class="md-primary md-dense">
+          <div class="" style="flex: 1">
+            <div id="logo-title" class="md-display-1">
+              <router-link to="/">
+                <span>eS</span>port<span>A</span>lliance
+              </router-link>
+            </div>
           </div>
-          -->
-          <div class="md-toolbar-section-end">
-            <md-menu md-size="small" md-direction="bottom-end" >
-              <router-link to="/events" tag="md-button">Events</router-link>
-              <router-link to="/teams" tag="md-button">Teams</router-link>
-              <router-link :to="{name:'gamesPage'}" tag="md-button">Games</router-link>
-              <router-link to="/prizes" tag="md-button">Prizes</router-link>
-              <md-button md-menu-trigger>awc737</md-button>
-              <md-menu-content>
-                <router-link to="profile" tag="md-menu-item">
-                  <md-icon>account_circle</md-icon>Profile
-                </router-link>
-                <md-menu-item href="/logout">
-                  <md-icon>exit_to_app</md-icon>Logout
-                </md-menu-item>
-              </md-menu-content>
-
+          <div class="">
+            <md-menu md-size="small" md-direction="bottom-end">
+              <div class="md-small-hide">
+                <router-link to="/events" tag="md-button">Events</router-link>
+                <router-link to="/teams" tag="md-button">Teams</router-link>
+                <router-link :to="{name:'gamesPage'}" tag="md-button">Games</router-link>
+                <router-link to="/prizes" tag="md-button">Prizes</router-link>
+                <md-button md-menu-trigger>awc737</md-button>
+                <md-menu-content>
+                  <router-link to="profile" tag="md-menu-item">
+                    <md-icon>account_circle</md-icon>Profile
+                  </router-link>
+                  <md-menu-item href="/logout">
+                    <md-icon>exit_to_app</md-icon>Logout
+                  </md-menu-item>
+                </md-menu-content>
+              </div>
+              <div class="md-medium-up-hide">
+                <md-button class="md-icon-button md-raised md-accent" @click="userMenuVisible = !userMenuVisible">
+                  <md-icon>person</md-icon>
+                </md-button>
+              <md-button class="md-icon-button md-raised md-accent" @click="menuVisible = !menuVisible">
+                <md-icon>menu</md-icon>
+              </md-button>
+              </div>
             </md-menu>
-            <md-button class="md-icon-button" @click="menuVisible = !menuVisible">
-              <md-icon>menu</md-icon>
-            </md-button>
-
           </div>
-        </div>
-
-        <div class="md-toolbar-row">
-          <div id="logo-title" class="md-display-1">
-            <span>eS</span>port<span>A</span>lliance</div>
-        </div>
       </md-app-toolbar>
 
-      <md-app-drawer md-permanent="clipped" :md-active.sync="menuVisible">
-        <md-toolbar :md-elevation="1">
+      <md-app-drawer class="md-primary" :md-right=true :md-active.sync="menuVisible">
+      <md-toolbar class="md-transparent" md-elevation="0">
+        <span class="md-title"><md-icon class="md-primary">map</md-icon> Navigation</span>
+      </md-toolbar>
+        <md-list>
+          <md-list-item href="/events">Events</md-list-item>
+          <md-list-item href="/teams">Teams</md-list-item>
+          <md-list-item href="/games">Games</md-list-item>
+          <md-list-item href="/prizes">Prizes</md-list-item>
+        </md-list>
+      </md-app-drawer>
+
+      <md-app-drawer class="md-primary"  :md-right=true :md-active.sync="userMenuVisible">
+        <md-toolbar :md-elevation="1" class="md-primary">
           <md-avatar class="md-avatar-icon md-accent">
             <md-icon>person</md-icon>
           </md-avatar>
@@ -102,7 +112,15 @@
   }
 
   .md-app-toolbar {
-    height: 196px;
+    // height: 196px;
+  }
+
+  .md-toolbar {
+    min-height: 64px;
+
+    .md-title .md-icon {
+        // margin-right: 5px;
+    }
   }
 
    // Demo purposes only
@@ -120,7 +138,8 @@
 export default {
   name: 'Flexible',
   data: () => ({
-    menuVisible: false
+    menuVisible: false,
+    userMenuVisible: false
   })
 }
 </script>
