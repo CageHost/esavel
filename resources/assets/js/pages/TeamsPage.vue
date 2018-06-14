@@ -1,6 +1,6 @@
 <template>
   <div class="md-layout md-gutter">
-    <div v-for="team in teams" class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100">
+    <div v-for="team in teams" class="md-layout-item md-large-size-25 md-medium-size-33 md-small-size-50  md-xsmall-size-100">
       <md-card class="md-primary" md-with-hover>
         <md-card-media-cover md-solid>
           <md-ripple>

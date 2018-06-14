@@ -78261,7 +78261,7 @@ var render = function() {
     "div",
     {
       staticClass:
-        "md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100"
+        "md-layout-item md-large-size-25 md-medium-size-33 md-small-size-50  md-xsmall-size-100"
     },
     [
       _c(
@@ -78320,7 +78320,7 @@ var render = function() {
                   _c("br"),
                   _vm._v(" "),
                   _c("md-icon", [_vm._v("people")]),
-                  _vm._v("15 participants\n            ")
+                  _vm._v("15 players\n            ")
                 ],
                 1
               ),
@@ -78749,7 +78749,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100"
+            "md-layout-item md-large-size-25 md-medium-size-33 md-small-size-50  md-xsmall-size-100"
         },
         [
           _c(
@@ -79156,7 +79156,7 @@ var render = function() {
         "div",
         {
           staticClass:
-            "md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100"
+            "md-layout-item md-large-size-25 md-medium-size-33 md-small-size-50  md-xsmall-size-100"
         },
         [
           _c(

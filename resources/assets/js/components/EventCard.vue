@@ -1,5 +1,5 @@
 <template>
-  <div class="md-layout-item md-large-size-33 md-medium-size-50 md-small-size-100">
+  <div class="md-layout-item md-large-size-25 md-medium-size-33 md-small-size-50  md-xsmall-size-100">
     <md-card md-with-hover>
         <md-card-area md-inset>
           <md-ripple>
@@ -20,7 +20,7 @@
             <div class="md-layout">
               <div class="md-layout-item">
                 <md-icon>place</md-icon>{{event.location}}<br>
-                <md-icon>people</md-icon>15 participants
+                <md-icon>people</md-icon>15 players
               </div>
               <div class="md-layout-item text-right">
                 {{event.time}}<md-icon>access_time</md-icon><br>
