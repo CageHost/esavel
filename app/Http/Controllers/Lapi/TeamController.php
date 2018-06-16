@@ -16,16 +16,24 @@ class TeamController extends Controller
 
     public function index()
     {
-        // $games = Game::where('active', 1)
-        $games = Team::orderBy('name', 'desc')
-          ->take(100)
+        $teams = Team::orderBy('name', 'desc')
+          ->take(100)->where('active', 1)
           ->get();
-        return response()->json($games);
+        return response()->json($teams);
     }
 
     public function show($alias)
     {
         $team = Team::where('alias', '=', $alias)->firstOrFail();
         return response()->json($team);
+    }
+
+    public function store(Request $request)
+    {
+        $data['name'] = $request->input('teamName');
+
+        return Team::create([
+            'name' => $data['name']
+        ]);
     }
 }

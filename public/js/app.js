@@ -73996,7 +73996,7 @@ var render = function() {
     [
       _c(
         "md-app",
-        { attrs: { "md-mode": "reveal" } },
+        { attrs: { "md-mode": "fixed" } },
         [
           _c("md-app-toolbar", { staticClass: "md-primary md-dense" }, [
             _c("div", { staticStyle: { flex: "1" } }, [
@@ -74646,12 +74646,15 @@ if (false) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_TeamsPage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__pages_TeamsPage__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_TeamPage__ = __webpack_require__(91);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_TeamPage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__pages_TeamPage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_GamesPage__ = __webpack_require__(94);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_GamesPage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__pages_GamesPage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_GamePage__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_GamePage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__pages_GamePage__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_Login__ = __webpack_require__(102);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_Login___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__pages_Login__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_TeamCreate__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_TeamCreate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__pages_TeamCreate__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_GamesPage__ = __webpack_require__(94);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_GamesPage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_11__pages_GamesPage__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_GamePage__ = __webpack_require__(99);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_GamePage___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12__pages_GamePage__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_Login__ = __webpack_require__(102);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_Login___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_13__pages_Login__);
+
 
 
 
@@ -74685,18 +74688,20 @@ var routes = [{
 }, {
     path: '/games',
     name: 'gamesPage',
-    component: __WEBPACK_IMPORTED_MODULE_10__pages_GamesPage___default.a
+    component: __WEBPACK_IMPORTED_MODULE_11__pages_GamesPage___default.a
 }, {
     path: '/login',
     name: 'login',
-    component: __WEBPACK_IMPORTED_MODULE_12__pages_Login___default.a
+    component: __WEBPACK_IMPORTED_MODULE_13__pages_Login___default.a
 }, {
     path: '/profile',
     name: 'profile',
     component: __WEBPACK_IMPORTED_MODULE_5__pages_ProfilePage___default.a
 },
 // TODO: wildcard does not catch /event/*
-{ path: '/event/:alias', component: __WEBPACK_IMPORTED_MODULE_7__pages_EventPage___default.a }, { path: '/game/:alias', component: __WEBPACK_IMPORTED_MODULE_11__pages_GamePage___default.a }, { path: '/team/:alias', component: __WEBPACK_IMPORTED_MODULE_9__pages_TeamPage___default.a }, { path: ':wildcard', component: __WEBPACK_IMPORTED_MODULE_4__pages_PageNotFound___default.a }];
+{ path: '/event/:alias', component: __WEBPACK_IMPORTED_MODULE_7__pages_EventPage___default.a }, { path: '/game/:alias', component: __WEBPACK_IMPORTED_MODULE_12__pages_GamePage___default.a }, { path: '/team/:alias', component: __WEBPACK_IMPORTED_MODULE_9__pages_TeamPage___default.a }, { path: ':wildcard', component: __WEBPACK_IMPORTED_MODULE_4__pages_PageNotFound___default.a },
+// TODO: organize thishit
+{ path: '/team/', component: __WEBPACK_IMPORTED_MODULE_10__pages_TeamCreate___default.a }];
 
 var router = new __WEBPACK_IMPORTED_MODULE_1_vue_router__["a" /* default */]({
     mode: 'history',
@@ -78715,6 +78720,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -78744,119 +78757,29 @@ var render = function() {
   return _c(
     "div",
     { staticClass: "md-layout md-gutter" },
-    _vm._l(_vm.teams, function(team) {
-      return _c(
+    [
+      _c(
         "div",
         {
           staticClass:
-            "md-layout-item md-large-size-25 md-medium-size-33 md-small-size-50  md-xsmall-size-100"
+            "md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100"
         },
         [
           _c(
-            "md-card",
-            { staticClass: "md-primary", attrs: { "md-with-hover": "" } },
+            "md-list",
+            { staticClass: "md-transparent" },
             [
               _c(
-                "md-card-media-cover",
-                { attrs: { "md-solid": "" } },
+                "md-list-item",
+                { attrs: { href: "/team" } },
                 [
-                  _c(
-                    "md-ripple",
-                    [
-                      _c(
-                        "router-link",
-                        {
-                          staticClass: "md-raised md-accent",
-                          attrs: { to: "/team/" + team.alias }
-                        },
-                        [
-                          _c(
-                            "md-card-media",
-                            { attrs: { "md-ratio": "16:9" } },
-                            [
-                              _c("img", {
-                                attrs: {
-                                  src: team.background,
-                                  alt: "Background"
-                                }
-                              })
-                            ]
-                          )
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "md-card-area",
-                        [
-                          _c(
-                            "md-card-actions",
-                            [
-                              _c(
-                                "md-button",
-                                { staticClass: "md-icon-button" },
-                                [
-                                  _vm._v("\n              15 "),
-                                  _c(
-                                    "md-icon",
-                                    { staticStyle: { "font-size": "12px" } },
-                                    [_vm._v("people")]
-                                  )
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "md-button",
-                                { staticClass: "md-icon-button" },
-                                [
-                                  _vm._v("\n              3 "),
-                                  _c("md-icon", [_vm._v("videogame_asset")])
-                                ],
-                                1
-                              ),
-                              _vm._v(" "),
-                              _c(
-                                "md-button",
-                                { staticClass: "md-icon-button" },
-                                [
-                                  _vm._v("\n              5 "),
-                                  _c(
-                                    "md-icon",
-                                    { staticStyle: { "font-size": "12px" } },
-                                    [_vm._v("event")]
-                                  )
-                                ],
-                                1
-                              )
-                            ],
-                            1
-                          )
-                        ],
-                        1
-                      )
-                    ],
-                    1
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "md-card-header",
-                [
-                  _c(
-                    "router-link",
-                    {
-                      staticClass: "md-raised md-accent",
-                      attrs: { to: "/team/" + team.alias }
-                    },
-                    [
-                      _c("span", { staticClass: "md-title" }, [
-                        _vm._v(_vm._s(team.name))
-                      ])
-                    ]
-                  )
+                  _c("md-icon", { staticClass: "md-accent" }, [
+                    _vm._v("add_box")
+                  ]),
+                  _vm._v(" "),
+                  _c("span", { staticClass: "md-list-item-text" }, [
+                    _vm._v("Create Team")
+                  ])
                 ],
                 1
               )
@@ -78865,8 +78788,133 @@ var render = function() {
           )
         ],
         1
-      )
-    })
+      ),
+      _vm._v(" "),
+      _vm._l(_vm.teams, function(team) {
+        return _c(
+          "div",
+          {
+            staticClass:
+              "md-layout-item md-large-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100"
+          },
+          [
+            _c(
+              "md-card",
+              { staticClass: "md-primary", attrs: { "md-with-hover": "" } },
+              [
+                _c(
+                  "md-card-media-cover",
+                  { attrs: { "md-solid": "" } },
+                  [
+                    _c(
+                      "md-ripple",
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            staticClass: "md-raised md-accent",
+                            attrs: { to: "/team/" + team.alias }
+                          },
+                          [
+                            _c(
+                              "md-card-media",
+                              { attrs: { "md-ratio": "16:9" } },
+                              [
+                                _c("img", {
+                                  attrs: {
+                                    src: team.background,
+                                    alt: "Background"
+                                  }
+                                })
+                              ]
+                            )
+                          ],
+                          1
+                        ),
+                        _vm._v(" "),
+                        _c(
+                          "md-card-area",
+                          [
+                            _c(
+                              "md-card-actions",
+                              [
+                                _c(
+                                  "md-button",
+                                  { staticClass: "md-icon-button" },
+                                  [
+                                    _vm._v("\n              15 "),
+                                    _c(
+                                      "md-icon",
+                                      { staticStyle: { "font-size": "12px" } },
+                                      [_vm._v("people")]
+                                    )
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "md-button",
+                                  { staticClass: "md-icon-button" },
+                                  [
+                                    _vm._v("\n              3 "),
+                                    _c("md-icon", [_vm._v("videogame_asset")])
+                                  ],
+                                  1
+                                ),
+                                _vm._v(" "),
+                                _c(
+                                  "md-button",
+                                  { staticClass: "md-icon-button" },
+                                  [
+                                    _vm._v("\n              5 "),
+                                    _c(
+                                      "md-icon",
+                                      { staticStyle: { "font-size": "12px" } },
+                                      [_vm._v("event")]
+                                    )
+                                  ],
+                                  1
+                                )
+                              ],
+                              1
+                            )
+                          ],
+                          1
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "md-card-header",
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        staticClass: "md-raised md-accent",
+                        attrs: { to: "/team/" + team.alias }
+                      },
+                      [
+                        _c("span", { staticClass: "md-title" }, [
+                          _vm._v(_vm._s(team.name))
+                        ])
+                      ]
+                    )
+                  ],
+                  1
+                )
+              ],
+              1
+            )
+          ],
+          1
+        )
+      })
+    ],
+    2
   )
 }
 var staticRenderFns = []
@@ -80951,6 +80999,354 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(143)
+}
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(141)
+/* template */
+var __vue_template__ = __webpack_require__(145)
+/* template functional */
+  var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-577af1af"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/pages/TeamCreate.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-577af1af", Component.options)
+  } else {
+    hotAPI.reload("data-v-577af1af", Component.options)
+' + '  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 141 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuelidate__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuelidate___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_vuelidate__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  name: 'FormValidation',
+  mixins: [__WEBPACK_IMPORTED_MODULE_0_vuelidate__["validationMixin"]],
+  data: function data() {
+    return {
+      form: {
+        teamName: null
+      },
+      userSaved: false,
+      sending: false,
+      lastUser: null
+    };
+  },
+  validations: {
+    form: {
+      teamName: {
+        required: __WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["required"],
+        minLength: Object(__WEBPACK_IMPORTED_MODULE_1_vuelidate_lib_validators__["minLength"])(3)
+      }
+    }
+  },
+  methods: {
+    getValidationClass: function getValidationClass(fieldName) {
+      var field = this.$v.form[fieldName];
+
+      if (field) {
+        return {
+          'md-invalid': field.$invalid && field.$dirty
+        };
+      }
+    },
+    clearForm: function clearForm() {
+      this.$v.$reset();
+      this.form.teamName = null;
+    },
+    saveUser: function saveUser() {
+      var _this = this;
+
+      this.sending = true;
+      /* Instead of this timeout, here you can call your API
+      window.setTimeout(() => {
+        this.userSaved = true
+        this.sending = false
+        this.clearForm()
+      }, 1500)
+      */
+      console.log(this.form);
+
+      axios.post('/lapi/team/', {
+        teamName: this.form.teamName
+      }).then(function (response) {
+        console.log(response.data);
+        _this.userSaved = true;
+        _this.sending = false;
+      }).catch(function (e) {
+        _this.errors.push(e);
+        debugger;
+      });
+    },
+    validateTeam: function validateTeam() {
+      this.$v.$touch();
+
+      if (!this.$v.$invalid) {
+        this.saveUser();
+      }
+    }
+  }
+});
+
+/***/ }),
+/* 142 */,
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(144);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(4)("31c53eff", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-577af1af\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./TeamCreate.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-577af1af\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/sass-loader/lib/loader.js!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./TeamCreate.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(3)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.md-layout-item[data-v-577af1af] {\n  margin-top: 8px;\n  margin-bottom: 8px;\n}\n.md-progress-bar[data-v-577af1af] {\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 145 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c(
+      "form",
+      {
+        staticClass: "md-layout md-gutter",
+        attrs: { novalidate: "" },
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            _vm.validateTeam($event)
+          }
+        }
+      },
+      [
+        _c(
+          "md-card",
+          { staticClass: "md-layout-item md-size-50 md-small-size-100" },
+          [
+            _c("md-card-header", [
+              _c("div", { staticClass: "md-title" }, [_vm._v("Create Team")])
+            ]),
+            _vm._v(" "),
+            _c("md-card-content", [
+              _c("div", { staticClass: "md-layout md-gutter" }, [
+                _c(
+                  "div",
+                  { staticClass: "md-layout-item md-small-size-100" },
+                  [
+                    _c(
+                      "md-field",
+                      { class: _vm.getValidationClass("teamName") },
+                      [
+                        _c("label", { attrs: { for: "team-name" } }, [
+                          _vm._v("Team Name")
+                        ]),
+                        _vm._v(" "),
+                        _c("md-input", {
+                          attrs: {
+                            name: "team-name",
+                            id: "team-name",
+                            disabled: _vm.sending
+                          },
+                          model: {
+                            value: _vm.form.teamName,
+                            callback: function($$v) {
+                              _vm.$set(_vm.form, "teamName", $$v)
+                            },
+                            expression: "form.teamName"
+                          }
+                        }),
+                        _vm._v(" "),
+                        !_vm.$v.form.teamName.required
+                          ? _c("span", { staticClass: "md-error" }, [
+                              _vm._v("The team name is required")
+                            ])
+                          : !_vm.$v.form.teamName.minlength
+                            ? _c("span", { staticClass: "md-error" }, [
+                                _vm._v("Invalid team name")
+                              ])
+                            : _vm._e()
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _vm.sending
+              ? _c("md-progress-bar", { attrs: { "md-mode": "indeterminate" } })
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "md-card-actions",
+              [
+                _c(
+                  "md-button",
+                  {
+                    staticClass: "md-raised md-primary",
+                    attrs: { type: "submit", disabled: _vm.sending }
+                  },
+                  [_vm._v("Create team")]
+                )
+              ],
+              1
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "md-snackbar",
+          {
+            attrs: { "md-active": _vm.userSaved },
+            on: {
+              "update:mdActive": function($event) {
+                _vm.userSaved = $event
+              }
+            }
+          },
+          [
+            _vm._v(
+              "The user " + _vm._s(_vm.lastUser) + " was saved with success!"
+            )
+          ]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-577af1af", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

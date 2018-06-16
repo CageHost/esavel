@@ -20,7 +20,7 @@
 
 <template>
   <div class="page-container">
-    <md-app md-mode="reveal">
+    <md-app md-mode="fixed">
       <md-app-toolbar class="md-primary md-dense">
           <div class="" style="flex: 1">
             <div id="logo-title" class="md-display-1">
@@ -70,7 +70,7 @@
         </md-list>
       </md-app-drawer>
 
-      <md-app-drawer class="md-primary"  :md-right=true :md-active.sync="userMenuVisible">
+      <md-app-drawer class="md-primary" :md-right=true :md-active.sync="userMenuVisible">
         <md-toolbar :md-elevation="1" class="md-primary">
           <md-avatar class="md-avatar-icon md-accent">
             <md-icon>person</md-icon>

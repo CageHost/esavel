@@ -10,6 +10,7 @@ import EventsPage from './pages/EventsPage'
 import EventPage from './pages/EventPage'
 import TeamsPage from './pages/TeamsPage'
 import TeamPage from './pages/TeamPage'
+import TeamCreatePage from './pages/TeamCreate'
 import GamesPage from './pages/GamesPage'
 import GamePage from './pages/GamePage'
 import LoginPage from './pages/Login'
@@ -52,6 +53,8 @@ const routes = [
   { path: '/game/:alias', component: GamePage },
   { path: '/team/:alias', component: TeamPage },
   { path: ':wildcard', component: PageNotFound },
+  // TODO: organize thishit
+  { path: '/team/', component: TeamCreatePage },
 ]
 
 const router = new VueRouter({

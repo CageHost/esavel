@@ -1,6 +1,14 @@
 <template>
   <div class="md-layout md-gutter">
-    <div v-for="team in teams" class="md-layout-item md-large-size-25 md-medium-size-33 md-small-size-50  md-xsmall-size-100">
+    <div class="md-layout-item md-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100">
+      <md-list class="md-transparent">
+        <md-list-item href="/team">
+          <md-icon class="md-accent">add_box</md-icon>
+          <span class="md-list-item-text">Create Team</span>
+        </md-list-item>
+      </md-list>
+    </div>
+    <div v-for="team in teams" class="md-layout-item md-large-size-25 md-medium-size-33 md-small-size-50 md-xsmall-size-100">
       <md-card class="md-primary" md-with-hover>
         <md-card-media-cover md-solid>
           <md-ripple>

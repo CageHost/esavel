@@ -33,6 +33,8 @@ Route::prefix('lapi')->namespace('Lapi')->group(function () {
     Route::get('/team/{id}', 'TeamController@show');
     Route::get('/events', 'EventController@index');
     Route::get('/event/{id}', 'EventController@show');
+
+    Route::post('/team', 'TeamController@store');
 });
 
 Route::get('/', 'SpaController@index');
