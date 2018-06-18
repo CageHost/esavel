@@ -1,6 +1,6 @@
 <template>
   <div>
-    <form novalidate class="md-layout md-gutter" @submit.prevent="validateTeam">
+    <form novalidate class="md-layout md-gutter" @submit.prevent="validateTeam" enctype="multipart/form-data">
       <md-card class="md-layout-item md-size-50 md-small-size-100">
         <md-card-header>
           <div class="md-title">Create Team</div>
@@ -14,6 +14,11 @@
                 <md-input name="team-name" id="team-name" v-model="form.teamName" :disabled="sending" />
                 <span class="md-error" v-if="!$v.form.teamName.required">The team name is required</span>
                 <span class="md-error" v-else-if="!$v.form.teamName.minlength">Invalid team name</span>
+              </md-field>
+
+              <md-field>
+                <label>Your fighting banner</label>
+                <md-file @md-change="setLogo" accept="image/*" />
               </md-field>
             </div>
           </div>
@@ -46,6 +51,10 @@
     data: () => ({
       form: {
         teamName: null,
+        logo: null,
+      },
+      headers: {
+        'Content-Type': 'multipart/form-data'
       },
       userSaved: false,
       sending: false,
@@ -60,9 +69,12 @@
       }
     },
     methods: {
+      setLogo(fileList) {
+        // Credit: @hailwood larachat slack
+        this.form.logo = fileList.length > 0 ? fileList[0] : null;
+      },
       getValidationClass (fieldName) {
         const field = this.$v.form[fieldName]
-
         if (field) {
           return {
             'md-invalid': field.$invalid && field.$dirty
@@ -73,23 +85,22 @@
         this.$v.$reset()
         this.form.teamName = null
       },
+      redirectAfter () {
+        this.$v.$router.push('teams')
+      },
       saveUser () {
         this.sending = true
-        /* Instead of this timeout, here you can call your API
-        window.setTimeout(() => {
-          this.userSaved = true
-          this.sending = false
-          this.clearForm()
-        }, 1500)
-        */
-        console.log(this.form)
 
-        axios.post('/lapi/team/', {
-          teamName: this.form.teamName
-        }).then(response => {
+        const data = new FormData();
+        data.append('teamName', this.form.teamName);
+        data.append('logo', this.form.logo);
+
+        axios.post('/lapi/team/', data).then(response => {
           console.log(response.data)
           this.userSaved = true
           this.sending = false
+          //TODO: snackbar after redirect
+          this.$router.push('teams')
         }).catch(e => {
           this.errors.push(e)
           debugger
